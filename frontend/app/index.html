@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V0 AI Frontend</title>
+</head>
+<body>
+    <p id="output">Waiting for backend...</p>
+
+    <script>
+        fetch("http://127.0.0.1:8000/api/data")  // Update this later with deployed backend URL
+            .then(response => response.json())
+            .then(data => {
+                console.log("Data from backend:", data);
+                document.getElementById("output").innerText = data.message;
+            })
+            .catch(error => console.error("Error fetching data:", error));
+    </script>
+</body>
+</html>
